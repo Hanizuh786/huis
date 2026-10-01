@@ -68,7 +68,7 @@ const P = {
   "/contact/": "contact.html",
   "/contact/via-linkedin.html": "contact.html#linkedin",
   "/contact/via-facebook.html": "contact.html#facebook",
-  "/contact/via-phone-you-can-reach-is.html": "contact.html#telefoon",
+  "/contact/via-phone-you-can-reach-is.html": "contact.html#afspraak",
   "/contact/via-e-mail.html": "contact.html#email",
   "/contact/our-office-in-the-netherlan.html": "contact.html#kantoor",
   "/betaling/": "betalen.html",
@@ -116,7 +116,11 @@ function relativizeChrome(html) {
   for (const p of ROOT_PAGES) {
     out = out.replace(new RegExp(`href="${p.replace(/\./g, "\\.")}(#[^"]*)?"`, "g"), `href="../${p}$1"`);
   }
-  return out.split('href="bedrijf-starten-dubai-uae.html"').join('href="index.html"');
+  // UAE section entry (root nav points at the subdir) → the local section index
+  out = out.split('href="en-nu-een-bedrijf-starten/"').join('href="index.html"');
+  // Legacy alias URL (old nav chrome) → the section index too
+  out = out.split('href="bedrijf-starten-dubai-uae.html"').join('href="index.html"');
+  return out;
 }
 const HEADER = relativizeChrome(indexHtml.slice(indexHtml.indexOf('<a class="visually-hidden-focusable"'), indexHtml.indexOf("</header>") + "</header>".length));
 const FOOTER = relativizeChrome(indexHtml.slice(indexHtml.indexOf('<footer class="site-footer">'), indexHtml.indexOf("</footer>") + "</footer>".length));
@@ -129,7 +133,7 @@ function page({ slug, title, desc, cat, dateISO, dateLabel, body, prev, next }) 
     headline: title, description: desc, datePublished: dateISO,
     inLanguage: "nl-NL", url: canonical,
     author: { "@type": "Person", name: "mr. Hilda van der Tuin" },
-    publisher: { "@type": "Organization", name: "Huisjurist bv" },
+    publisher: { "@type": "Organization", name: "Huisjurist B.V." },
     isAccessibleForFree: true,
   };
   const navItem = (a, cls) => a ? `<a class="btn btn-ghost btn-sm ${cls}" href="${esc(a.href)}">${cls === "prev" ? "&larr; " : ""}${esc(a.text)}${cls === "next" ? " &rarr;" : ""}</a>` : "";
@@ -158,11 +162,8 @@ function page({ slug, title, desc, cat, dateISO, dateLabel, body, prev, next }) 
   <meta property="article:author" content="mr. Hilda van der Tuin">
   <meta property="og:image" content="https://www.huisjurist.nl/assets/img/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#005B8C">
-  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#005496">
+  <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="../assets/css/main.css">
   <script type="application/ld+json">${JSON.stringify(jsonld)}</script>
   <script type="application/ld+json">
@@ -205,7 +206,7 @@ function page({ slug, title, desc, cat, dateISO, dateLabel, body, prev, next }) 
                 Gepubliceerd op <time datetime="${dateISO}">${dateLabel}</time> door mr. Hilda van der Tuin.
                 Dit artikel is als historische kennis bewaard en niet bijgewerkt; de wetgeving en praktijk kunnen
                 sinds de publicatiedatum zijn gewijzigd.                Bekijk voor actuele diensten de
-                <a href="../bedrijf-starten-dubai-uae.html">UAE-sectie</a>.
+                <a href="../">UAE-sectie</a>.
               </div>
 
               <article class="mt-4 reveal uae-article">
@@ -224,8 +225,8 @@ ${body}
               </div>
 
               <div class="d-flex flex-wrap gap-2 mt-4 reveal">
-                <a class="btn btn-primary btn-sm" href="../bedrijf-starten-dubai-uae.html">Alle UAE-onderwerpen</a>
-                <a class="btn btn-ghost btn-sm" href="../bedrijf-starten-dubai-uae.html">UAE: bedrijf starten</a>
+                <a class="btn btn-primary btn-sm" href="../">Alle UAE-onderwerpen</a>
+                <a class="btn btn-ghost btn-sm" href="../index.html">UAE: bedrijf starten</a>
                 <a class="btn btn-ghost btn-sm" href="../contact.html">Contact</a>
               </div>
             </div>

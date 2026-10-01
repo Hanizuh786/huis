@@ -26,7 +26,7 @@
     transition: color 0.25s ease, transform 0.25s ease;
 
     &:hover {
-      color: $brand-orange;
+      color: $orange-text-light; // light amber reads on dark blue (6.5:1)
       transform: translateX(4px);
       text-decoration: underline;
       text-underline-offset: 3px;
@@ -46,15 +46,9 @@
     align-items: center;
     gap: 0.6rem;
 
-    .brand-mark {
-      width: 38px;
-      height: 38px;
-      border-radius: 11px;
-      @include flex-center;
-      background: $brand-orange;
-      color: $white;
-      font-size: 1.05rem;
-      font-weight: 700;
+    .brand-logo {
+      height: 46px;
+      width: auto;
     }
   }
 
@@ -80,8 +74,8 @@
     transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
 
     &:hover {
-      background: $brand-orange;
-      border-color: $brand-orange;
+      background: $orange-text; // accessible orange — white glyph 5.5:1
+      border-color: $orange-text;
       color: $white;
       transform: translateY(-4px);
     }
@@ -121,5 +115,5 @@
     color: $white;
   }
 
-  @include focus-ring($brand-orange);
+  @include focus-ring($orange-text);
 }

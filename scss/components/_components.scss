@@ -3,6 +3,15 @@
 // Palette: white 80% / brand blue 15% / brand orange 5%
 // ==========================================================================
 
+// --- Responsive row gutters (no horizontal overflow on phones) -----------
+// Bootstrap g-5 rows use -24px margins; the 12px container padding cannot
+// absorb them below md, so rows stick out 12px per side on phones.
+@include media-breakpoint-down(md) {
+  .row.g-5 {
+    --bs-gutter-x: 1.5rem;
+  }
+}
+
 // --- Buttons --------------------------------------------------------------
 // Primary: #005496 bg, #FFF text, hover #003F71
 // Secondary: #FFF bg, #005496 text, #005496 border
@@ -14,7 +23,7 @@
   border-radius: 999px;
   transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease,
     color 0.25s ease, border-color 0.25s ease;
-  @include focus-ring($brand-orange);
+  @include focus-ring($orange-text);
 
   &:hover {
     transform: translateY(-2px);
@@ -53,11 +62,13 @@
   }
 }
 
+// Accent CTA uses the accessible orange: white text on #9E570B = 5.5:1 (AA);
+// pure #D9842B with white text measures only 2.9:1 and fails WCAG AA.
 .btn-accent {
-  background: $brand-orange;
+  background: $orange-text;
   border: none;
   color: $white;
-  box-shadow: 0 12px 26px -14px rgba($brand-orange, 0.8);
+  box-shadow: 0 12px 26px -14px rgba($orange-text, 0.8);
 
   &:hover,
   &:focus {
@@ -134,6 +145,22 @@
     }
   }
 
+// Profile photo (mr. Hilda van der Tuin) — About panel + homepage "Wie ben ik" section
+.profile-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.profile-photo--card {
+  aspect-ratio: 4 / 5;
+  border-radius: $border-radius-xl;
+  border: 1px solid $border;
+  box-shadow: $box-shadow-lg;
+}
+
   .panel-head {
     display: flex;
     align-items: center;
@@ -155,7 +182,7 @@
     &.is-business .panel-icon {
       background: rgba($brand-orange, 0.12);
       border-color: rgba($brand-orange, 0.35);
-      color: $cta-hover;
+      color: $cta-hover; // #8A4C09 — 6.7:1 on white
     }
 
     &:hover .panel-icon {
@@ -214,17 +241,17 @@
       }
 
       a {
-        color: $brand-orange;
+        color: $orange-text;
         font-weight: 700;
 
         &:hover {
-          color: $cta-hover;
+          color: $orange-text-dark;
         }
       }
     }
 
     &.question-list--business li::before {
-      color: $cta-hover;
+      color: $cta-hover; // decorative arrow
     }
   }
 }
@@ -293,8 +320,8 @@
   }
 
   &.feature-card--accent .feature-icon {
-    background: $brand-orange;
-    box-shadow: 0 12px 24px -12px rgba($brand-orange, 0.75);
+    background: $orange-text; // white glyph 5.5:1
+    box-shadow: 0 12px 24px -12px rgba($orange-text, 0.75);
   }
 
   &.feature-card--accent::before {
@@ -332,7 +359,7 @@
     }
 
     .eyebrow {
-      color: $brand-orange;
+      color: $orange-text-light; // light amber on brand blue (4.7:1)
     }
   }
 }
@@ -387,6 +414,34 @@
     margin-top: 0.35rem;
     font-family: $font-sans-serif;
     font-weight: 700;
+  }
+}
+
+// --- Logo chip (homepage "Wie ben ik" dark section) -----------------------
+// White pill carrying the logo so the brand mark stays visible on the blue band.
+.logo-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: $white;
+  border-radius: 999px;
+  padding: 0.5rem 1.4rem 0.5rem 0.6rem;
+  box-shadow: 0 16px 32px -16px rgba($brand-blue, 0.6);
+  animation: bob 6s ease-in-out infinite;
+
+  img {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    flex: 0 0 auto;
+  }
+
+  .logo-chip-text {
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    color: $brand-blue;
+    white-space: nowrap;
   }
 }
 
@@ -637,7 +692,7 @@
     font-size: 0.78rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: $cta-hover;
+    color: $cta-hover; // #8A4C09 — 6.7:1 on white
     font-weight: 700;
   }
 
@@ -697,7 +752,7 @@
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 
     &::placeholder {
-      color: rgba($ink-soft, 0.75);
+      color: $ink-soft; // full opacity — 5.5:1, hints stay readable
       font-weight: 500;
     }
 

@@ -49,6 +49,15 @@
       background: $soft;
       border: 1px solid $border;
       color: $brand-blue;
+      animation: bob 5s ease-in-out infinite;
+
+      &:nth-child(2) {
+        animation-delay: -1.6s;
+      }
+
+      &:nth-child(3) {
+        animation-delay: -3.2s;
+      }
     }
   }
 
@@ -121,16 +130,22 @@
     @include flex-center;
     flex-direction: column;
     text-align: center;
-    background: $brand-blue;
-    box-shadow: 0 30px 60px -24px rgba($brand-blue, 0.55);
+    background: $white;
+    box-shadow: 0 30px 60px -24px rgba($brand-blue, 0.45), 0 0 0 1px rgba($brand-blue, 0.08);
     animation: floatY 8s ease-in-out infinite;
+
+    .emblem-logo {
+      width: 62%;
+      height: auto;
+      animation: logoPop 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
+    }
 
     .emblem-year {
       font-family: $headings-font-family;
       font-size: clamp(2.4rem, 5vw, 3.4rem);
       font-weight: 700;
       line-height: 1;
-      color: $white;
+      color: $brand-blue;
     }
 
     .emblem-caption {
@@ -138,13 +153,8 @@
       font-weight: 700;
       letter-spacing: 0.26em;
       text-transform: uppercase;
-      color: rgba($white, 0.85);
+      color: rgba($brand-blue, 0.72);
       margin-top: 0.5rem;
-    }
-
-    .emblem-gavel {
-      font-size: 1.9rem;
-      margin-bottom: 0.3rem;
     }
   }
 
@@ -156,6 +166,17 @@
     border-radius: 50%;
     box-shadow: 0 0 0 6px rgba($brand-orange, 0.2);
 
+    // soft pulse ring behind the solid dot (decorative)
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: $brand-orange;
+      z-index: -1;
+      animation: pulseRing 2.6s ease-out infinite;
+    }
+
     &--top {
       top: -6px;
       left: 50%;
@@ -165,6 +186,10 @@
       bottom: -6px;
       left: 50%;
       transform: translateX(-50%);
+
+      &::before {
+        animation-delay: -1.3s;
+      }
     }
   }
 }

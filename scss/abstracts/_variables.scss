@@ -6,10 +6,13 @@
 
 // --- Brand palette -------------------------------------------------------
 $brand-blue: #005496; // Logo Blue — logo, main headings, primary buttons
-$brand-orange: #d9842b; // Logo Orange — highlights, links, active menu, accents
-$cta-hover: #b96e20; // Accent CTA hover
-$ink: #25364a; // Dark Slate — main text
-$ink-soft: #5f738c; // Muted Blue Gray — subtitles, descriptions
+$brand-orange: #d9842b; // Logo Orange — decorative accents, underlines, bars (2.9:1 on white: never body text)
+$orange-text: #9e570b; // Accessible orange for text on white/soft (5.5:1 — WCAG AA)
+$orange-text-dark: #8a4c09; // Hover state for orange text (6.7:1)
+$orange-text-light: #f5c07a; // Orange text on dark blue sections (4.7:1+)
+$cta-hover: #8a4c09; // Accent CTA hover (white text 6.7:1)
+$ink: #25364a; // Dark Slate — main text (12.3:1 on white)
+$ink-soft: #566b82; // Muted Blue Gray — darkened for AA on white AND soft (5.5:1 / 4.8:1)
 $paper: #ffffff; // Pure White — page background
 $soft: #f5f7fa; // Soft Gray Blue — alternate section background
 $border: #e3e7eb; // Light Gray — card borders, separators

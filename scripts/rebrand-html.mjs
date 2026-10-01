@@ -58,8 +58,10 @@ for (const f of files) {
   // 4. Local images: _Media → assets/img (files were downloaded locally)
   html = html.replace(/\.\.\/_Media\//g, '../assets/img/');
 
-  // 5. Inline old-gold accent → Logo Orange
-  html = html.replace(/#e9a23b/g, '#D9842B');
+  // 5. Inline old-gold accent → accessible orange (AA on white; pure #D9842B is 2.9:1)
+  html = html.replace(/#e9a23b/g, '#9E570B');
+  // 5b. Never let inline text use the pure brand orange (fails WCAG AA on white)
+  html = html.replace(/color:\s*#D9842B/gi, 'color:#9E570B');
 
   // 6. Lazy-load real <img> tags (skip JSON-LD script lines to avoid breaking JSON strings)
   const lines = html.split('\n');

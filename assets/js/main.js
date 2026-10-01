@@ -221,7 +221,7 @@
     { t: "Ik blog dus ik ben", u: "blog.html", d: "Juridische blogposts over onder meer filmscripts, huwelijk en bankrekeningen.", k: "blog auteursrecht filmscript bankrekening visum" },
     { t: "Zoeken in deze site", u: "zoeken.html", d: "Doorzoek alle pagina's van huisjurist.", k: "zoeken search site" },
     { t: "Klachten?", u: "klachten.html", d: "Snelle klachtenprocedure: binnen enkele dagen een persoonlijke reactie.", k: "klacht klachten procedure reactie" },
-    { t: "Contact — hoe u mij bereikt", u: "contact.html", d: "E-mail, telefoon, LinkedIn, Facebook en het kantoor in Joure.", k: "contact email telefoon linkedin facebook joure kantoor" },
+    { t: "Contact — hoe u mij bereikt", u: "contact.html", d: "E-mail, een geboekte afspraak, LinkedIn, Facebook en het kantoor in Joure.", k: "contact email afspraak linkedin facebook joure kantoor" },
     { t: "Betalen — bankgegevens", u: "betalen.html", d: "IBAN, BIC en betalen met Mastercard, VISA of PayFort.", k: "betalen iban knab factuur" },
     { t: "Privacy policy", u: "privacy.html", d: "Zero trackers, geen cookies, geen verkoop van persoonsgegevens.", k: "privacy cookies trackers avg gdpr persoonsgegevens" },
     { t: "Certificeringen en awards", u: "certificeringen.html", d: "PRINCE2, DIAC, gecertificeerd mediator en internationale awards.", k: "certificering awards prince2 diac mediator prijzen" },
