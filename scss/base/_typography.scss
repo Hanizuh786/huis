@@ -1,0 +1,129 @@
+// ==========================================================================
+// Typography — Verdana per brand spec
+// H1 48–56px Bold #005496 | H2 32–40px Bold #005496 | H3 24–28px Bold #25364A
+// Body 16–18px #25364A | Small 14px #5F738C
+// ==========================================================================
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px;
+}
+
+body {
+  font-family: $font-sans-serif;
+  font-size: 1.0625rem; // 17px body
+  line-height: 1.65;
+  color: $ink;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $headings-font-family;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0;
+  color: $brand-blue;
+}
+
+h1 {
+  font-size: clamp(3rem, 5.5vw, 3.5rem); // 48–56px
+}
+h2 {
+  font-size: clamp(2rem, 3.6vw, 2.5rem); // 32–40px
+}
+h3 {
+  font-size: clamp(1.5rem, 2.2vw, 1.75rem); // 24–28px
+  color: $ink;
+}
+h4 {
+  font-size: 1.25rem;
+  color: $ink;
+}
+h5,
+h6 {
+  font-size: 1.05rem;
+  color: $ink;
+}
+
+p {
+  color: $ink;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: $brand-orange;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  @include focus-ring;
+  transition: color 0.2s ease, text-decoration-thickness 0.2s ease;
+
+  &:hover {
+    color: $brand-orange;
+    text-decoration-thickness: 2px;
+  }
+}
+
+strong {
+  color: $ink;
+  font-weight: 700;
+}
+
+small,
+.small {
+  font-size: 0.875rem; // 14px
+  color: $ink-soft;
+}
+
+// Eyebrow / kicker label above headings
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: $brand-orange;
+  margin-bottom: 0.9rem;
+
+  &::before {
+    content: "";
+    width: 30px;
+    height: 3px;
+    background: $brand-orange;
+    border-radius: 2px;
+  }
+}
+
+// Solid brand text helpers (replace old gradient text)
+.text-gradient {
+  color: $brand-blue;
+}
+
+.text-gradient--gold {
+  color: $brand-orange;
+}
+
+// Section heading block
+.section-title {
+  max-width: 46rem;
+
+  p {
+    font-size: 1.05rem;
+    margin-top: 0.8rem;
+    color: $ink-soft;
+  }
+}
+
+// Selection colour
+::selection {
+  background: rgba($brand-orange, 0.28);
+  color: $ink;
+}

@@ -1,0 +1,243 @@
+// ==========================================================================
+// Hero (home) + compact page header (subpages)
+// Hero section: #FFFFFF background, #005496 content.
+// ==========================================================================
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  @include flex-center;
+  padding: 8.5rem 0 5rem;
+  color: $ink;
+  background: $white;
+  overflow: hidden;
+  isolation: isolate;
+
+  .hero-inner {
+    position: relative;
+    width: 100%;
+  }
+
+  h1 {
+    color: $brand-blue;
+    font-weight: 700;
+
+    .typed-line {
+      display: block;
+      min-height: 1.15em;
+    }
+  }
+
+  .hero-lead {
+    color: $ink-soft;
+    font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+    max-width: 34rem;
+  }
+
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+
+    .badge {
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+      padding: 0.55em 1em;
+      border-radius: 999px;
+      background: $soft;
+      border: 1px solid $border;
+      color: $brand-blue;
+    }
+  }
+
+  .hero-cta {
+    .btn {
+      padding: 0.85rem 1.7rem;
+      font-weight: 700;
+    }
+  }
+}
+
+// Floating decorative blobs — very subtle brand tints on white
+.hero-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  z-index: -1;
+  animation: floatY 12s ease-in-out infinite;
+
+  &--1 {
+    width: 420px;
+    height: 420px;
+    background: rgba($brand-blue, 0.07);
+    top: -90px;
+    right: -70px;
+  }
+  &--2 {
+    width: 320px;
+    height: 320px;
+    background: rgba($brand-orange, 0.1);
+    bottom: -70px;
+    left: -90px;
+    animation-delay: -4s;
+  }
+  &--3 {
+    width: 220px;
+    height: 220px;
+    background: rgba($brand-blue, 0.05);
+    top: 45%;
+    right: 28%;
+    animation-delay: -7s;
+  }
+}
+
+// Floating emblem beside hero copy — solid brand blue disc
+.hero-emblem {
+  position: relative;
+  width: min(360px, 78vw);
+  aspect-ratio: 1;
+  margin-inline: auto;
+
+  .emblem-ring {
+    position: absolute;
+    inset: 0;
+    border: 1px dashed rgba($brand-blue, 0.35);
+    border-radius: 50%;
+    animation: spinSlow 40s linear infinite;
+
+    @keyframes spinSlow {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  }
+
+  .emblem-core {
+    position: absolute;
+    inset: 14%;
+    border-radius: 50%;
+    @include flex-center;
+    flex-direction: column;
+    text-align: center;
+    background: $brand-blue;
+    box-shadow: 0 30px 60px -24px rgba($brand-blue, 0.55);
+    animation: floatY 8s ease-in-out infinite;
+
+    .emblem-year {
+      font-family: $headings-font-family;
+      font-size: clamp(2.4rem, 5vw, 3.4rem);
+      font-weight: 700;
+      line-height: 1;
+      color: $white;
+    }
+
+    .emblem-caption {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: rgba($white, 0.85);
+      margin-top: 0.5rem;
+    }
+
+    .emblem-gavel {
+      font-size: 1.9rem;
+      margin-bottom: 0.3rem;
+    }
+  }
+
+  .emblem-dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: $brand-orange;
+    border-radius: 50%;
+    box-shadow: 0 0 0 6px rgba($brand-orange, 0.2);
+
+    &--top {
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    &--bottom {
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+// Scroll hint
+.scroll-hint {
+  position: absolute;
+  bottom: 1.6rem;
+  right: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  color: $ink-soft;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+
+  .scroll-hint-line {
+    width: 1px;
+    height: 44px;
+    background: $border;
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 14px;
+      background: $brand-orange;
+      animation: scrollHint 1.8s ease-in-out infinite;
+    }
+  }
+}
+
+// --- Compact header for subpages ------------------------------------------
+// Header section: #FFFFFF background, #25364A content.
+.page-hero {
+  position: relative;
+  padding: 3.4rem 0 3rem;
+  color: $ink;
+  background: $white;
+  border-bottom: 1px solid $border;
+
+  h1 {
+    color: $brand-blue;
+    font-size: clamp(1.9rem, 4vw, 2.9rem);
+    margin-bottom: 0.4rem;
+  }
+
+  .breadcrumb {
+    margin-bottom: 0;
+
+    a {
+      color: $ink-soft;
+
+      &:hover {
+        color: $brand-orange;
+      }
+    }
+
+    .breadcrumb-item.active {
+      color: $brand-orange;
+    }
+  }
+
+  .page-hero-lead {
+    color: $ink-soft;
+    max-width: 44rem;
+    margin-top: 0.6rem;
+  }
+}

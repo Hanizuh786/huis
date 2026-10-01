@@ -1,0 +1,19 @@
+// ==========================================================================
+// huisjurist clone — master stylesheet
+// Build: sass scss/main.scss assets/css/main.css --style=compressed
+// ==========================================================================
+
+// 1. Design tokens (must come first so Bootstrap !default picks them up)
+@import "abstracts/variables";
+@import "abstracts/mixins";
+
+// 2. Bootstrap 5 (full, with our overrides)
+@import "bootstrap/scss/bootstrap";
+
+// 3. Project layers
+@import "base/typography";
+@import "base/animations";
+@import "layout/navbar";
+@import "layout/hero";
+@import "layout/footer";
+@import "components/components";

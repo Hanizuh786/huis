@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /scripts/
+Disallow: /node_modules/
+Disallow: /scss/
+
+# Geografische hint voor zoekmachines: Joure, Friesland, Nederland
+# Host: www.huisjurist.nl
+
+Sitemap: https://www.huisjurist.nl/sitemap.xml

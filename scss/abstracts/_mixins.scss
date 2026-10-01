@@ -1,0 +1,70 @@
+// ==========================================================================
+// Mixins & helpers
+// ==========================================================================
+
+/// Responsive breakpoint helper: @include media-breakpoint-up(md) { ... }
+@mixin media-breakpoint-up($name) {
+  $value: map-get($grid-breakpoints, $name);
+  @if $value == null {
+    @error "Unknown breakpoint `#{$name}`.";
+  }
+  @media (min-width: $value) {
+    @content;
+  }
+}
+
+/// Accessible focus ring in brand blue
+@mixin focus-ring($color: $brand-blue) {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  &:focus-visible {
+    outline: 2px solid $color;
+    outline-offset: 3px;
+    border-radius: $border-radius-sm;
+  }
+}
+
+/// Solid brand fill (replaces the old gradient)
+@mixin gradient-brand {
+  background: $brand-blue;
+}
+
+/// Soft section wash (solid soft gray blue)
+@mixin gradient-soft {
+  background: $soft;
+}
+
+/// Flat brand fill for CTA bands (replaces animated gradient)
+@mixin gradient-animated {
+  background: $brand-blue;
+}
+
+/// Centered flex helper
+@mixin flex-center($direction: row) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: $direction;
+}
+
+/// Card lift on hover
+@mixin card-lift($scale: 1.02) {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  &:hover {
+    transform: translateY(-6px) scale($scale);
+    box-shadow: $box-shadow-lg;
+  }
+}
+
+/// Underline that draws itself in on hover
+@mixin link-underline($color: currentColor, $thickness: 2px) {
+  background-image: linear-gradient($color, $color);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0% $thickness;
+  transition: background-size 0.35s ease;
+  &:hover,
+  &:focus-visible {
+    background-size: 100% $thickness;
+  }
+}

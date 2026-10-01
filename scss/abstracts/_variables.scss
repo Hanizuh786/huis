@@ -1,0 +1,82 @@
+// ==========================================================================
+// Design tokens — huisjurist.nl
+// Brand: Logo Blue #005496 / Logo Orange #D9842B / Dark Slate #25364A
+// Usage distribution: 80% white, 15% blue, 5% orange
+// ==========================================================================
+
+// --- Brand palette -------------------------------------------------------
+$brand-blue: #005496; // Logo Blue — logo, main headings, primary buttons
+$brand-orange: #d9842b; // Logo Orange — highlights, links, active menu, accents
+$cta-hover: #b96e20; // Accent CTA hover
+$ink: #25364a; // Dark Slate — main text
+$ink-soft: #5f738c; // Muted Blue Gray — subtitles, descriptions
+$paper: #ffffff; // Pure White — page background
+$soft: #f5f7fa; // Soft Gray Blue — alternate section background
+$border: #e3e7eb; // Light Gray — card borders, separators
+$footer-bg: #003f71; // Dark Brand Blue — footer background
+$white: #ffffff;
+
+// --- Derived scale (for subtle tints; keep usage minimal) ----------------
+$blue-800: #00446c;
+$blue-600: #0a6fa5;
+$blue-500: #1e86b8;
+$blue-400: #4aa3ce;
+$blue-300: #7ec0e2;
+$blue-200: #b3dcf0;
+$blue-100: #dcf0fa;
+$blue-50: #f0f9fd;
+
+// --- Semantic aliases ----------------------------------------------------
+$primary: $brand-blue;
+$secondary: $brand-blue;
+$accent: $brand-orange;
+$accent-dark: $cta-hover;
+$body-color: $ink;
+$body-bg: $paper;
+
+// --- Bootstrap overrides (used before Bootstrap import) ------------------
+$border-radius: 0.5rem;
+$border-radius-sm: 0.375rem;
+$border-radius-lg: 0.75rem;
+$border-radius-xl: 1rem;
+$font-sans-serif: Verdana, Geneva, Tahoma, system-ui, sans-serif;
+$headings-font-family: Verdana, Geneva, Tahoma, system-ui, sans-serif;
+$headings-font-weight: 700;
+$headings-line-height: 1.2;
+$enable-shadows: false;
+$enable-gradients: false;
+$spacer: 1rem;
+
+// --- Breakpoints (Bootstrap defaults) ------------------------------------
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px,
+);
+
+// --- Layout ---------------------------------------------------------------
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px,
+);
+
+// --- Custom scales --------------------------------------------------------
+$z-layers: (
+  navbar: 1030,
+  progress: 1040,
+  backtotop: 1050,
+);
+
+// --- Shadows (subtle, slate-tinted) --------------------------------------
+$box-shadow-sm: 0 2px 8px rgba($ink, 0.05);
+$box-shadow: 0 12px 30px -14px rgba($ink, 0.18);
+$box-shadow-lg: 0 28px 56px -22px rgba($ink, 0.26);
+
+// --- Transitions ----------------------------------------------------------
+$transition-base: all 0.25s ease;

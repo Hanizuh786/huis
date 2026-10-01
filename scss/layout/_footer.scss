@@ -1,0 +1,125 @@
+// ==========================================================================
+// Footer — #003F71 background, #FFFFFF content. Back-to-top button.
+// ==========================================================================
+
+.site-footer {
+  position: relative;
+  color: rgba($white, 0.82);
+  background: $footer-bg;
+  padding-top: 3.5rem;
+
+  h6 {
+    color: $white;
+    font-family: $font-sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 1.1rem;
+  }
+
+  a {
+    color: rgba($white, 0.8);
+    display: inline-block;
+    padding: 0.22rem 0;
+    text-decoration: none;
+    transition: color 0.25s ease, transform 0.25s ease;
+
+    &:hover {
+      color: $brand-orange;
+      transform: translateX(4px);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+  }
+
+  p {
+    color: rgba($white, 0.72);
+  }
+
+  .footer-brand {
+    font-family: $headings-font-family;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: $white;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 11px;
+      @include flex-center;
+      background: $brand-orange;
+      color: $white;
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+  }
+
+  .footer-legal {
+    border-top: 1px solid rgba($white, 0.15);
+    margin-top: 2.6rem;
+    padding: 1.4rem 0 1.6rem;
+    font-size: 0.85rem;
+
+    a {
+      padding: 0;
+    }
+  }
+
+  .social-link {
+    @include flex-center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid rgba($white, 0.3);
+    color: $white;
+    font-size: 0.95rem;
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      background: $brand-orange;
+      border-color: $brand-orange;
+      color: $white;
+      transform: translateY(-4px);
+    }
+  }
+}
+
+// Back to top
+.back-to-top {
+  position: fixed;
+  right: 1.4rem;
+  bottom: 1.4rem;
+  z-index: map-get($z-layers, backtotop);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  @include flex-center;
+  background: $brand-blue;
+  color: $white;
+  font-size: 1.2rem;
+  box-shadow: 0 14px 30px -12px rgba($brand-blue, 0.6);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease,
+    background 0.25s ease;
+
+  &.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    background: $footer-bg;
+    color: $white;
+  }
+
+  @include focus-ring($brand-orange);
+}
