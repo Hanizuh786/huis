@@ -20,31 +20,48 @@ const ratio = (fg, bg) => {
   return (hi + 0.05) / (lo + 0.05);
 };
 
-// Reference rows (tagged 'ref') document the pre-fix palette; they are not live styles.
+// Reference rows (tagged 'ref') document the retired palette; they are not
+// live styles. The live rows all use the ported design tokens.
 const pairs = [
   // [label, fg, bg, size ('normal' | 'large'), kind ('text' | 'graphic')]
-  ['Body text #25364A on white', '#25364A', '#FFFFFF', 'normal', 'text'],
-  ['Body text #25364A on soft #F5F7FA', '#25364A', '#F5F7FA', 'normal', 'text'],
-  ['Secondary #566B82 on white', '#566B82', '#FFFFFF', 'normal', 'text'],
-  ['Secondary #566B82 on soft #F5F7FA', '#566B82', '#F5F7FA', 'normal', 'text'],
-  ['H1/H2 #005496 on white', '#005496', '#FFFFFF', 'large', 'text'],
-  ['Link orange #9E570B on white', '#9E570B', '#FFFFFF', 'normal', 'text'],
-  ['Link orange #9E570B on soft #F5F7FA', '#9E570B', '#F5F7FA', 'normal', 'text'],
-  ['Link hover #8A4C09 on white', '#8A4C09', '#FFFFFF', 'normal', 'text'],
-  ['Primary button: white on #005496', '#FFFFFF', '#005496', 'normal', 'text'],
-  ['Primary hover: white on #003F71', '#FFFFFF', '#003F71', 'normal', 'text'],
-  ['Accent CTA: white on #9E570B', '#FFFFFF', '#9E570B', 'normal', 'text'],
+  // --- Body & secondary text ---
+  ['Body text #333333 on white', '#333333', '#FFFFFF', 'normal', 'text'],
+  ['Body text #333333 on soft #F7F8FA', '#333333', '#F7F8FA', 'normal', 'text'],
+  ['Secondary #667085 on white', '#667085', '#FFFFFF', 'normal', 'text'],
+  ['Secondary #667085 on soft #F7F8FA', '#667085', '#F7F8FA', 'normal', 'text'],
+  // --- Headings ---
+  ['Headings #1A2E44 on white', '#1A2E44', '#FFFFFF', 'large', 'text'],
+  ['Headings #00558F on white', '#00558F', '#FFFFFF', 'large', 'text'],
+  // --- Links ---
+  ['Link #00558F on white', '#00558F', '#FFFFFF', 'normal', 'text'],
+  ['Link #00558F on soft #F7F8FA', '#00558F', '#F7F8FA', 'normal', 'text'],
+  ['Link hover #003F6B on white', '#003F6B', '#FFFFFF', 'normal', 'text'],
+  // --- Amber text (AA-safe #B45309) ---
+  ['Amber text #B45309 on white', '#B45309', '#FFFFFF', 'normal', 'text'],
+  ['Amber text #B45309 on soft #F7F8FA', '#B45309', '#F7F8FA', 'normal', 'text'],
+  ['Amber hover #8A4C09 on white', '#8A4C09', '#FFFFFF', 'normal', 'text'],
+  // --- Buttons ---
+  ['Primary button: white on #00558F', '#FFFFFF', '#00558F', 'normal', 'text'],
+  ['Primary hover: white on #003F6B', '#FFFFFF', '#003F6B', 'normal', 'text'],
+  ['Accent CTA: white on #B45309', '#FFFFFF', '#B45309', 'normal', 'text'],
   ['Accent CTA hover: white on #8A4C09', '#FFFFFF', '#8A4C09', 'normal', 'text'],
-  ['Footer text white on #003F71', '#FFFFFF', '#003F71', 'normal', 'text'],
-  ['Footer link hover #F5C07A on #003F71', '#F5C07A', '#003F71', 'normal', 'text'],
-  ['Dark-section eyebrow #F5C07A on #005496', '#F5C07A', '#005496', 'normal', 'text'],
-  ['Social icon white on #9E570B hover', '#FFFFFF', '#9E570B', 'normal', 'graphic'],
-  ['Nav underline bar #D9842B on white', '#D9842B', '#FFFFFF', 'normal', 'graphic'],
-  ['Focus ring #9E570B on white', '#9E570B', '#FFFFFF', 'normal', 'graphic'],
-  ['Focus ring #D9842B on white (ref)', '#D9842B', '#FFFFFF', 'normal', 'graphic', 'ref'],
-  ['OLD link #D9842B on white (ref)', '#D9842B', '#FFFFFF', 'normal', 'text', 'ref'],
-  ['OLD secondary #5F738C on soft (ref)', '#5F738C', '#F5F7FA', 'normal', 'text', 'ref'],
-  ['OLD accent CTA white on #D9842B (ref)', '#FFFFFF', '#D9842B', 'normal', 'text', 'ref'],
+  // --- Footer (navy #1A2E44) ---
+  ['Footer text #FFFFFF on #1A2E44', '#FFFFFF', '#1A2E44', 'normal', 'text'],
+  ['Footer text #D9E2EC on #1A2E44', '#D9E2EC', '#1A2E44', 'normal', 'text'],
+  ['Footer link hover #8FC7F0 on #1A2E44', '#8FC7F0', '#1A2E44', 'normal', 'text'],
+  // --- Dark blue sections ---
+  ['Dark-section eyebrow #F5C07A on #00558F', '#F5C07A', '#00558F', 'normal', 'text'],
+  // --- Graphics (WCAG 1.4.11, 3:1) ---
+  ['Social icon white on #B45309 hover', '#FFFFFF', '#B45309', 'normal', 'graphic'],
+  ['Nav underline bar #B45309 on white', '#B45309', '#FFFFFF', 'normal', 'graphic'],
+  ['Focus ring #B45309 on white', '#B45309', '#FFFFFF', 'normal', 'graphic'],
+  ['Focus ring #00558F on white', '#00558F', '#FFFFFF', 'normal', 'graphic'],
+  // --- Retired palette (reference only, not live styles) ---
+  ['REF OLD nav underline #D9842B on white', '#D9842B', '#FFFFFF', 'normal', 'graphic', 'ref'],
+  ['REF OLD link #D9842B on white', '#D9842B', '#FFFFFF', 'normal', 'text', 'ref'],
+  ['REF proposal amber #F59E0B on white', '#F59E0B', '#FFFFFF', 'normal', 'text', 'ref'],
+  ['REF decorative #98A2B3 on white (never text)', '#98A2B3', '#FFFFFF', 'normal', 'text', 'ref'],
+  ['REF OLD secondary #5F738C on soft', '#5F738C', '#F5F7FA', 'normal', 'text', 'ref'],
 ];
 
 const need = (size, kind) => {

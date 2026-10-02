@@ -1,7 +1,8 @@
 // ==========================================================================
 // Typography — Verdana per brand spec
-// H1 48–56px Bold #005496 | H2 32–40px Bold #005496 | H3 24–28px Bold #25364A
-// Body 16–18px #25364A | Small 14px #5F738C
+// H1 40–56px Bold #1A2E44 | H2 32–40px Bold #1A2E44 | H3 24–28px Bold #1A2E44
+// Body 18px #333333 / line-height 1.7 | Small 14px #667085
+// Links: #00558F underlined, hover #003F6B
 // ==========================================================================
 
 html {
@@ -11,17 +12,19 @@ html {
 
 body {
   font-family: $font-sans-serif;
-  font-size: 1.0625rem; // 17px body
-  line-height: 1.65;
+  font-size: 1.125rem; // 18px body
+  line-height: 1.7;
   color: $ink;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
-// Responsive media — images never overflow their container (safe reflow on small screens)
+// Responsive media — images never overflow their container (safe reflow on
+// small screens) and carry the brand corner radius.
 img {
   max-width: 100%;
   height: auto;
+  border-radius: $border-radius;
 }
 
 h1,
@@ -34,7 +37,7 @@ h6 {
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: 0;
-  color: $brand-blue;
+  color: $heading;
   // Long Dutch compounds (e.g. "Ondernemingszaken") must wrap, never overflow
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -48,16 +51,13 @@ h2 {
 }
 h3 {
   font-size: clamp(1.5rem, 2.2vw, 1.75rem); // 24–28px
-  color: $ink;
 }
 h4 {
   font-size: 1.25rem;
-  color: $ink;
 }
 h5,
 h6 {
   font-size: 1.05rem;
-  color: $ink;
 }
 
 p {
@@ -78,7 +78,7 @@ code {
 }
 
 a {
-  color: $orange-text; // accessible orange (5.5:1 on white)
+  color: $brand-blue; // 7.8:1 on white — AA/AAA
   text-decoration: underline;
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
@@ -86,7 +86,7 @@ a {
   transition: color 0.2s ease, text-decoration-thickness 0.2s ease;
 
   &:hover {
-    color: $orange-text-dark; // darker on hover — contrast improves, never degrades
+    color: $brand-blue-dark; // 10.9:1 — contrast improves, never degrades
     text-decoration-thickness: 2px;
   }
 }
@@ -149,3 +149,4 @@ small,
   background: rgba($brand-orange, 0.28);
   color: $ink;
 }
+

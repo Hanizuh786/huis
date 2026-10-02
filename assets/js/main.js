@@ -100,49 +100,7 @@
   }
 
   /* ------------------------------------------------------------------ *
-   * 4. Animated counters
-   * ------------------------------------------------------------------ */
-  const counters = doc.querySelectorAll("[data-count-to]");
-  if (counters.length && "IntersectionObserver" in window) {
-    const cio = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          const el = entry.target;
-          cio.unobserve(el);
-
-          const target = parseFloat(el.getAttribute("data-count-to"));
-          const plain = el.hasAttribute("data-count-plain");
-          const suffix = el.getAttribute("data-count-suffix") || "";
-          const fmt = function (n) {
-            return plain ? String(n) : Number(n).toLocaleString("nl-NL");
-          };
-          const dur = 1400;
-          const start = performance.now();
-
-          if (prefersReduced) {
-            el.textContent = fmt(target) + suffix;
-            return;
-          }
-
-          (function step(now) {
-            const p = Math.min((now - start) / dur, 1);
-            const eased = 1 - Math.pow(1 - p, 3);
-            const val = Math.round(target * eased);
-            el.textContent = fmt(val) + suffix;
-            if (p < 1) requestAnimationFrame(step);
-          })(start);
-        });
-      },
-      { threshold: 0.4 }
-    );
-    counters.forEach(function (el) {
-      cio.observe(el);
-    });
-  }
-
-  /* ------------------------------------------------------------------ *
-   * 5. Active nav link highlighting (by pathname)
+   * 4. Active nav link highlighting (by pathname)
    * ------------------------------------------------------------------ */
   const here = (location.pathname.split("/").pop() || "index.html").toLowerCase();
   doc.querySelectorAll(".site-navbar .nav-link").forEach(function (link) {
@@ -154,7 +112,7 @@
   });
 
   /* ------------------------------------------------------------------ *
-   * 6. Close mobile drawer after navigating
+   * 5. Close mobile drawer after navigating
    * ------------------------------------------------------------------ */
   const collapseEl = doc.getElementById("primaryNav");
   if (collapseEl && window.bootstrap) {
@@ -167,7 +125,7 @@
   }
 
   /* ------------------------------------------------------------------ *
-   * 7. Copy-to-clipboard buttons (data-copy)
+   * 6. Copy-to-clipboard buttons (data-copy)
    * ------------------------------------------------------------------ */
   doc.querySelectorAll("[data-copy]").forEach(function (btn) {
     const original = btn.innerHTML;
@@ -205,28 +163,24 @@
   });
 
   /* ------------------------------------------------------------------ *
-   * 8. Local site search (progressive; falls back to Google CSE)
+   * 7. Local site search (progressive, fully client-side)
    * ------------------------------------------------------------------ */
   const searchForm = doc.getElementById("siteSearchForm");
   const searchResults = doc.getElementById("searchResults");
-  // SITE_INDEX holds root-relative URLs; adjust when the form is used from the UAE section.
-  const inUaeSection = location.pathname.indexOf("/en-nu-een-bedrijf-starten/") !== -1;
-  const linkPrefix = inUaeSection ? "../" : "";
+  // SITE_INDEX holds root-relative URLs of every page on this site.
   const SITE_INDEX = [
-    { t: "Uw huisjurist voor uw zakelijke en persoonlijke vragen", u: "index.html", d: "Juridisch advies, mediation en interim management.", k: "home start persoonlijk zakelijk" },
+    { t: "Uw huisjurist voor uw zakelijke en persoonlijke vragen", u: "index.html", d: "Juridisch advies, mediation en interim-management.", k: "home start persoonlijk zakelijk" },
     { t: "Wie ben ik? — mr. Hilda van der Tuin", u: "wie-ben-ik.html", d: "Hoe ik werk: responsief, transparant en in normaal Nederlands.", k: "hilda cv linkedin mediator directeur" },
     { t: "Kernkwaliteiten & juridisch advies", u: "juridisch-advies.html", d: "Onroerend goed, testamenten, echtscheidingen en privacy/AVG.", k: "kernkwaliteiten advies gdpr grond testament mediation" },
-    { t: "Wat kost het? — kosten", u: "kosten.html", d: "€185 per uur, all-in, wekelijkse onderbouwing en factuur.", k: "kosten prijs tarief euro budget factuur" },
-    { t: "Bedrijf starten in Dubai / de UAE", u: "en-nu-een-bedrijf-starten/", d: "Alles waar u tegenaan loopt bij het starten van een bedrijf in de UAE.", k: "dubai uae vae bedrijf starten visum freezone 51%" },
-    { t: "Ik blog dus ik ben", u: "blog.html", d: "Juridische blogposts over onder meer filmscripts, huwelijk en bankrekeningen.", k: "blog auteursrecht filmscript bankrekening visum" },
+    { t: "Wat kost het? — kosten", u: "kosten.html", d: "€ 250 per uur exclusief BTW (€ 302,50 inclusief 21% BTW), wekelijks onderbouwing en factuur.", k: "kosten prijs tarief euro budget factuur" },
     { t: "Zoeken in deze site", u: "zoeken.html", d: "Doorzoek alle pagina's van huisjurist.", k: "zoeken search site" },
-    { t: "Klachten?", u: "klachten.html", d: "Snelle klachtenprocedure: binnen enkele dagen een persoonlijke reactie.", k: "klacht klachten procedure reactie" },
-    { t: "Contact — hoe u mij bereikt", u: "contact.html", d: "E-mail, een geboekte afspraak, LinkedIn, Facebook en het kantoor in Joure.", k: "contact email afspraak linkedin facebook joure kantoor" },
-    { t: "Betalen — bankgegevens", u: "betalen.html", d: "IBAN, BIC en betalen met Mastercard, VISA of PayFort.", k: "betalen iban knab factuur" },
-    { t: "Privacy policy", u: "privacy.html", d: "Zero trackers, geen cookies, geen verkoop van persoonsgegevens.", k: "privacy cookies trackers avg gdpr persoonsgegevens" },
-    { t: "Certificeringen en awards", u: "certificeringen.html", d: "PRINCE2, DIAC, gecertificeerd mediator en internationale awards.", k: "certificering awards prince2 diac mediator prijzen" },
-    { t: "Persoonlijke juridische vraag", u: "persoonlijke-juridische-vraag.html", d: "Mediator, testament, scheiden, appartement Dubai.", k: "persoonlijk scheiden testament mediator" },
-    { t: "Zakelijke juridische vraag", u: "zakelijke-juridische-vraag.html", d: "GDPR, grond aankopen, gemeente, conflict, buitenlandse vestiging.", k: "zakelijk gdpr grond gemeente conflict vestiging" }
+    { t: "Klachten?", u: "klachten.html", d: "Snelle klachtenprocedure: heel snel een persoonlijke reactie.", k: "klacht klachten procedure reactie" },
+    { t: "Contact — hoe u mij bereikt", u: "contact.html", d: "E-mail, een geboekte afspraak, LinkedIn en het kantoor in Joure.", k: "contact email afspraak linkedin joure kantoor" },
+    { t: "Betalen — bankgegevens", u: "betalen.html", d: "IBAN en BIC van de bankrekening van Huisjurist B.V.", k: "betalen iban knab factuur" },
+    { t: "Privacy policy", u: "privacy.html", d: "Niets verzameld: geen cookies, geen trackers, geen verkoop van persoonsgegevens.", k: "privacy cookies trackers avg gdpr persoonsgegevens" },
+    { t: "Certificeringen en registraties", u: "certificeringen.html", d: "PRINCE2, associate member DIAC, gecertificeerd mediator en Raad van State.", k: "certificering registraties prince2 diac mediator" },
+    { t: "Persoonlijke juridische vraag", u: "persoonlijke-juridische-vraag.html", d: "Mediator, testament, echtscheiding en persoonlijke vragen.", k: "persoonlijk scheiden testament mediator" },
+    { t: "Zakelijke juridische vraag", u: "zakelijke-juridische-vraag.html", d: "GDPR, grond aankopen, gemeente en conflicten.", k: "zakelijk gdpr grond gemeente conflict" }
   ];
 
   function renderResults(query) {
@@ -246,7 +200,7 @@
       searchResults.innerHTML =
         '<li class="list-group-item border-0"><div class="callout">Geen resultaten voor "<strong>' +
         escapeHtml(query) +
-        '</strong>". Probeer een ander woord, of <a href="https://cse.google.com/cse?cx=009864382566634396520:yj1wxsuqhy0" target="_blank" rel="noopener">doorzoek de site via Google</a>.</div></li>';
+        '</strong>". Probeer een ander woord, of <a href="contact.html">neem contact op</a>.</div></li>';
       return;
     }
 
@@ -255,7 +209,6 @@
       li.className = "list-group-item border-0 px-0 anim-fade-in";
       li.innerHTML =
         '<a class="channel-tile w-100" href="' +
-        linkPrefix +
         item.u +
         '"><span class="channel-icon">▸</span><span><span class="channel-title d-block">' +
         escapeHtml(item.t) +
@@ -292,7 +245,7 @@
   }
 
   /* ------------------------------------------------------------------ *
-   * 8b. Static contact form → opens the visitor's own mail client
+   * 7b. Static contact form → opens the visitor's own mail client
    * ------------------------------------------------------------------ */
   const contactForm = doc.getElementById("contactForm");
   if (contactForm) {
@@ -317,14 +270,14 @@
   }
 
   /* ------------------------------------------------------------------ *
-   * 9. Footer year
+   * 8. Footer year
    * ------------------------------------------------------------------ */
   doc.querySelectorAll("[data-year]").forEach(function (el) {
     el.textContent = String(new Date().getFullYear());
   });
 
   /* ------------------------------------------------------------------ *
-   * 10. Gentle card tilt (pointer-follow), disabled on touch/reduced
+   * 9. Gentle card tilt (pointer-follow), disabled on touch/reduced
    * ------------------------------------------------------------------ */
   if (!prefersReduced && window.matchMedia("(hover: hover)").matches) {
     doc.querySelectorAll("[data-tilt]").forEach(function (card) {

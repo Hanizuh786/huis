@@ -1,6 +1,6 @@
 // ==========================================================================
-// Sticky navbar — Header section: #FFFFFF background, #25364A content.
-// Links: slate; hover/active: Logo Orange #D9842B underline.
+// Sticky navbar — Header section: #FFFFFF background, #333333 content.
+// Links: #333333; hover/active: amber #B45309 underline.
 // ==========================================================================
 
 .site-navbar {
@@ -106,7 +106,7 @@
     @include focus-ring;
 
     .navbar-toggler-icon {
-      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%2325364a' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%231a2e44' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
     }
   }
 

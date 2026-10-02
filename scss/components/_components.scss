@@ -498,11 +498,11 @@
   }
 
   &::after {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3e%3cpath stroke='%23005496' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3e%3cpath stroke='%2300558f' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
   }
 
   &:not(.collapsed)::after {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3e%3cpath stroke='%23005496' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 11l6-6 6 6'/%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3e%3cpath stroke='%2300558f' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 11l6-6 6 6'/%3e%3c/svg%3e");
   }
 }
 
@@ -661,6 +661,11 @@
     color: $ink-soft;
   }
 
+  .award-badge {
+    max-width: 14rem;
+    height: auto;
+  }
+
   &:hover {
     transform: translateX(6px);
     border-color: rgba($brand-orange, 0.55);
@@ -771,6 +776,37 @@
     color: $brand-blue;
     font-size: 1.1rem;
     pointer-events: none;
+  }
+
+  .search-button {
+    position: absolute;
+    right: 0.55rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.8rem;
+    height: 2.8rem;
+    padding: 0;
+    border: none;
+    border-radius: 999px;
+    background: $brand-blue;
+    color: $white;
+    font-size: 1.05rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      background: $blue-800;
+      transform: translateY(-50%) scale(1.06);
+    }
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 4px rgba($brand-blue, 0.35);
+    }
   }
 }
 
