@@ -10,9 +10,9 @@ import * as cheerio from "cheerio";
 import fs from "node:fs";
 import path from "node:path";
 
-const LIVE = "https://www.huisjurist.nl/en-nu-een-bedrijf-starten/";
+const LIVE = "https://www.huisjurist.nl/ARCHIVE_PLACEHOLDER_UAE_SECTION_ID/";
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
-const OUTDIR = path.join(ROOT, "en-nu-een-bedrijf-starten");
+const OUTDIR = path.join(ROOT, "ARCHIVE_PLACEHOLDER_UAE_SECTION_ID");
 
 // slug, ISO publication date, display date, subject category
 const ARTICLES = [
@@ -43,18 +43,18 @@ const ARTICLES = [
 
 // Subject categories for the UAE section (item 5) + current-service link (item 7)
 const CATS = {
-  business: { label: "Bedrijf starten in de UAE", url: "https://www.holland-legal-services.ae/business-set-up.html",
-    linkText: "Actueel: bedrijf opzetten in de UAE via Holland Legal Services" },
-  corporate: { label: "Ondernemingszaken, visa & bureaucratie", url: "https://www.holland-legal-services.ae/",
-    linkText: "Actueel: zakelijke UAE-dienstverlening via Holland Legal Services" },
-  disputes: { label: "Innen & geschillen", url: "https://www.holland-legal-services.ae/",
-    linkText: "Actueel: incasso en geschillen in de UAE via Holland Legal Services" },
-  residence: { label: "Wonen & leven in de UAE", url: "https://www.dutchlawyerindeuae.nl/",
-    linkText: "Actueel: Nederlandstalig juridisch advies in de UAE — Dutch Lawyer in de UAE" },
-  legalisation: { label: "Legalisation & notariële zaken", url: "https://www.holland-legal-services.ae/",
-    linkText: "Actueel: legalisatie van documenten via Holland Legal Services" },
-  other: { label: "Overige artikelen uit de UAE-periode", url: "https://www.dutchlawyerindeuae.nl/",
-    linkText: "Actueel: Nederlandstalige juridische diensten in de UAE — Dutch Lawyer in de UAE" },
+  business: { label: "ARCHIVE_PLACEHOLDER_BUSINESS_LABEL", url: "https://ARCHIVE_PLACEHOLDER_BUSINESS_URL",
+    linkText: "ARCHIVE_PLACEHOLDER_BUSINESS_LINKTEXT" },
+  corporate: { label: "ARCHIVE_PLACEHOLDER_CORPORATE_LABEL", url: "https://ARCHIVE_PLACEHOLDER_CORPORATE_URL",
+    linkText: "ARCHIVE_PLACEHOLDER_CORPORATE_LINKTEXT" },
+  disputes: { label: "ARCHIVE_PLACEHOLDER_DISPUTES_LABEL", url: "https://ARCHIVE_PLACEHOLDER_DISPUTES_URL",
+    linkText: "ARCHIVE_PLACEHOLDER_DISPUTES_LINKTEXT" },
+  residence: { label: "ARCHIVE_PLACEHOLDER_RESIDENCE_LABEL", url: "https://ARCHIVE_PLACEHOLDER_RESIDENCE_URL",
+    linkText: "ARCHIVE_PLACEHOLDER_RESIDENCE_LINKTEXT" },
+  legalisation: { label: "ARCHIVE_PLACEHOLDER_LEGALISATION_LABEL", url: "https://ARCHIVE_PLACEHOLDER_LEGALISATION_URL",
+    linkText: "ARCHIVE_PLACEHOLDER_LEGALISATION_LINKTEXT" },
+  other: { label: "ARCHIVE_PLACEHOLDER_OTHER_LABEL", url: "https://ARCHIVE_PLACEHOLDER_OTHER_URL",
+    linkText: "ARCHIVE_PLACEHOLDER_OTHER_LINKTEXT" },
 };
 
 // Live internal path -> clone file (or "" meaning section-root file)
@@ -172,7 +172,7 @@ function page({ slug, title, desc, cat, dateISO, dateLabel, body, prev, next }) 
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "huisjurist", "item": "https://www.huisjurist.nl/index.html" },
-      { "@type": "ListItem", "position": 2, "name": "UAE", "item": "https://www.huisjurist.nl/en-nu-een-bedrijf-starten/" },
+      { "@type": "ListItem", "position": 2, "name": "ARCHIVE_PLACEHOLDER_BREADCRUMB_NAME", "item": "https://www.huisjurist.nl/ARCHIVE_PLACEHOLDER_UAE_SECTION_ID/" },
       { "@type": "ListItem", "position": 3, "name": "${esc(title)}", "item": "${canonical}" }
     ]
   }

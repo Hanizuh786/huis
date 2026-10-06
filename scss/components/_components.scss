@@ -631,6 +631,7 @@
 // --- Certification / award rows --------------------------------------------
 .award-row {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   align-items: flex-start;
   padding: 1rem 1.2rem;
@@ -662,7 +663,7 @@
   }
 
   .award-badge {
-    max-width: 14rem;
+    max-width: min(14rem, 100%);
     height: auto;
   }
 

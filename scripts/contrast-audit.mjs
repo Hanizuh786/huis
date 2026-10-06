@@ -20,8 +20,9 @@ const ratio = (fg, bg) => {
   return (hi + 0.05) / (lo + 0.05);
 };
 
-// Reference rows (tagged 'ref') document the retired palette; they are not
-// live styles. The live rows all use the ported design tokens.
+// Live rows use the current design tokens for huisjurist.nl.
+// Reference rows (tagged 'ref') document older/retired palette values and are
+// not asserted against the current page.
 const pairs = [
   // [label, fg, bg, size ('normal' | 'large'), kind ('text' | 'graphic')]
   // --- Body & secondary text ---
@@ -36,10 +37,10 @@ const pairs = [
   ['Link #00558F on white', '#00558F', '#FFFFFF', 'normal', 'text'],
   ['Link #00558F on soft #F7F8FA', '#00558F', '#F7F8FA', 'normal', 'text'],
   ['Link hover #003F6B on white', '#003F6B', '#FFFFFF', 'normal', 'text'],
-  // --- Amber text (AA-safe #B45309) ---
-  ['Amber text #B45309 on white', '#B45309', '#FFFFFF', 'normal', 'text'],
-  ['Amber text #B45309 on soft #F7F8FA', '#B45309', '#F7F8FA', 'normal', 'text'],
-  ['Amber hover #8A4C09 on white', '#8A4C09', '#FFFFFF', 'normal', 'text'],
+  // --- Accent text (AA-safe #B45309) ---
+  ['Accent text #B45309 on white', '#B45309', '#FFFFFF', 'normal', 'text'],
+  ['Accent text #B45309 on soft #F7F8FA', '#B45309', '#F7F8FA', 'normal', 'text'],
+  ['Accent hover #8A4C09 on white', '#8A4C09', '#FFFFFF', 'normal', 'text'],
   // --- Buttons ---
   ['Primary button: white on #00558F', '#FFFFFF', '#00558F', 'normal', 'text'],
   ['Primary hover: white on #003F6B', '#FFFFFF', '#003F6B', 'normal', 'text'],
@@ -63,6 +64,7 @@ const pairs = [
   ['REF decorative #98A2B3 on white (never text)', '#98A2B3', '#FFFFFF', 'normal', 'text', 'ref'],
   ['REF OLD secondary #5F738C on soft', '#5F738C', '#F5F7FA', 'normal', 'text', 'ref'],
 ];
+
 
 const need = (size, kind) => {
   if (kind === 'graphic') return 3.0; // WCAG 1.4.11 non-text contrast

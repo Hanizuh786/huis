@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-// One-off: rebuild bedrijf-starten-dubai-uae.html as a THIN ALIAS page.
+// One-off: rebuild ALIAS_PLACEHOLDER_DUBAI_UAE_ALIAS_PAGE as a THIN ALIAS page.
 // Not a redirect — the page stays at its historical URL but points visitors to
-// the canonical UAE section index (en-nu-een-bedrijf-starten/).
+// the canonical UAE section index (ARCHIVE_PLACEHOLDER_UAE_SECTION_ID/).
 // Header/footer chrome is copied from the migrated index.html so it can never drift.
 import fs from "node:fs";
 import path from "node:path";
@@ -24,11 +24,11 @@ const main = `
           <nav aria-label="Kruimelpad">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="index.html">huisjurist</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Bedrijf starten in de UAE</li>
+              <li class="breadcrumb-item active" aria-current="page">ARCHIVE_PLACEHOLDER_PAGE_TITLE</li>
             </ol>
           </nav>
-          <h1>Bedrijf starten in Dubai &amp; de UAE</h1>
-          <p class="page-hero-lead">Alles wat huisjurist weet over ondernemen in de Verenigde Arabische Emiraten — gebundeld in ons UAE-kennisarchief.</p>
+          <h1>ARCHIVE_PLACEHOLDER_PAGE_TITLE</h1>
+          <p class="page-hero-lead">ARCHIVE_PLACEHOLDER_PAGE_LEAD</p>
         </div>
       </section>
 
@@ -37,37 +37,37 @@ const main = `
           <div class="row justify-content-center">
             <div class="col-lg-8">
               <div class="section-head text-center reveal">
-                <span class="eyebrow">UAE-kennisarchief</span>
-                <h2 id="alias-title">Alle UAE-onderwerpen op één plek</h2>
-                <p>De artikelen over bedrijf starten in de UAE — van visums en freezones tot bankrekeningen, wonen en betalen in Dubai — staan in het Huisjurist UAE-kennisarchief. Oudere artikelen blijven bewaard als historische content, met hun oorspronkelijke publicatiedatum.</p>
+                <span class="eyebrow">ARCHIVE_PLACEHOLDER_EYEBROW</span>
+                <h2 id="alias-title">ARCHIVE_PLACEHOLDER_SECTION_TITLE</h2>
+                <p>ARCHIVE_PLACEHOLDER_SECTION_INTRO</p>
               </div>
               <div class="text-center mt-4 reveal">
-                <a class="btn btn-primary btn-lg" href="en-nu-een-bedrijf-starten/">Naar het UAE-kennisarchief</a>
+                <a class="btn btn-primary btn-lg" href="ARCHIVE_PLACEHOLDER_SECTION_URL">ARCHIVE_PLACEHOLDER_ACTION_LINK</a>
               </div>
               <ul class="list-unstyled mt-5 reveal">
                 <li class="d-flex align-items-center gap-2 py-2 border-bottom">
-                  <span aria-hidden="true">🏢</span>
-                  <a href="en-nu-een-bedrijf-starten/#bedrijf-starten">Bedrijf starten &amp; visums</a>
+                  <span aria-hidden="true">ARCHIVE_PLACEHOLDER_ITEM_1_ICON</span>
+                  <a href="ARCHIVE_PLACEHOLDER_ITEM_1_URL">ARCHIVE_PLACEHOLDER_ITEM_1_LABEL</a>
                 </li>
                 <li class="d-flex align-items-center gap-2 py-2 border-bottom">
-                  <span aria-hidden="true">🏦</span>
-                  <a href="en-nu-een-bedrijf-starten/#ondernemingszaken">Ondernemingszaken — bankieren &amp; freezones</a>
+                  <span aria-hidden="true">ARCHIVE_PLACEHOLDER_ITEM_2_ICON</span>
+                  <a href="ARCHIVE_PLACEHOLDER_ITEM_2_URL">ARCHIVE_PLACEHOLDER_ITEM_2_LABEL</a>
                 </li>
                 <li class="d-flex align-items-center gap-2 py-2 border-bottom">
-                  <span aria-hidden="true">🏠</span>
-                  <a href="en-nu-een-bedrijf-starten/#wonen-leven">Wonen &amp; leven in de UAE</a>
+                  <span aria-hidden="true">ARCHIVE_PLACEHOLDER_ITEM_3_ICON</span>
+                  <a href="ARCHIVE_PLACEHOLDER_ITEM_3_URL">ARCHIVE_PLACEHOLDER_ITEM_3_LABEL</a>
                 </li>
                 <li class="d-flex align-items-center gap-2 py-2 border-bottom">
-                  <span aria-hidden="true">💰</span>
-                  <a href="en-nu-een-bedrijf-starten/#innen-geschillen">Inningen &amp; geschillen</a>
+                  <span aria-hidden="true">ARCHIVE_PLACEHOLDER_ITEM_4_ICON</span>
+                  <a href="ARCHIVE_PLACEHOLDER_ITEM_4_URL">ARCHIVE_PLACEHOLDER_ITEM_4_LABEL</a>
                 </li>
                 <li class="d-flex align-items-center gap-2 py-2 border-bottom">
-                  <span aria-hidden="true">📜</span>
-                  <a href="en-nu-een-bedrijf-starten/#legalisatie">Legalisatie &amp; attesteren</a>
+                  <span aria-hidden="true">ARCHIVE_PLACEHOLDER_ITEM_5_ICON</span>
+                  <a href="ARCHIVE_PLACEHOLDER_ITEM_5_URL">ARCHIVE_PLACEHOLDER_ITEM_5_LABEL</a>
                 </li>
                 <li class="d-flex align-items-center gap-2 py-2">
-                  <span aria-hidden="true">📚</span>
-                  <a href="en-nu-een-bedrijf-starten/#overige">Overige onderwerpen</a>
+                  <span aria-hidden="true">ARCHIVE_PLACEHOLDER_ITEM_6_ICON</span>
+                  <a href="ARCHIVE_PLACEHOLDER_ITEM_6_URL">ARCHIVE_PLACEHOLDER_ITEM_6_LABEL</a>
                 </li>
               </ul>
             </div>
@@ -77,10 +77,10 @@ const main = `
 
       <section class="section section--tint" aria-labelledby="alias-contact">
         <div class="container text-center reveal">
-          <h2 id="alias-contact">Vragen over ondernemen in de UAE?</h2>
-          <p class="mx-auto" style="max-width:42rem;">Maak direct een afspraak in mijn agenda, of stuur een e-mail. Voor actuele UAE-diensten kunt u ook terecht bij onze gespecialiseerde website <a href="https://www.dutchlawyerindeuae.nl/" target="_blank" rel="noopener">Dutch Lawyer in de UAE</a>.</p>
+          <h2 id="alias-contact">ARCHIVE_PLACEHOLDER_CONTACT_SECTION_TITLE</h2>
+          <p class="mx-auto" style="max-width:42rem;">ARCHIVE_PLACEHOLDER_CONTACT_LEAD — voor actuele informatie kunt u terecht bij ARCHIVE_PLACEHOLDER_EXTERNAL_REFERENCE.</p>
           <div class="d-flex flex-wrap gap-3 justify-content-center mt-4">
-            <a class="btn btn-accent" href="https://dutchlawyerindeuae.youcanbook.me/" target="_blank" rel="noopener">Afspraak maken</a>
+            <a class="btn btn-accent" href="ARCHIVE_PLACEHOLDER_CONTACT_LINK" target="_blank" rel="noopener">ARCHIVE_PLACEHOLDER_CONTACT_ACTION</a>
             <a class="btn btn-primary" href="contact.html">Contact</a>
           </div>
         </div>
@@ -97,14 +97,14 @@ const page = `<!doctype html>
   <meta name="keywords" content="bedrijf starten, Dubai, UAE, Verenigde Arabische Emiraten, visum, freezone, huisjurist">
   <meta name="author" content="mr. Hilda van der Tuin">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-  <link rel="canonical" href="https://www.huisjurist.nl/en-nu-een-bedrijf-starten/">
-  <link rel="alternate" hreflang="nl-NL" href="https://www.huisjurist.nl/en-nu-een-bedrijf-starten/">
+  <link rel="canonical" href="https://ARCHIVE_PLACEHOLDER_CANONICAL_URL">
+  <link rel="alternate" hreflang="nl-NL" href="https://ARCHIVE_PLACEHOLDER_CANONICAL_URL">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="nl_NL">
   <meta property="og:site_name" content="huisjurist">
-  <meta property="og:title" content="Bedrijf starten in Dubai &amp; de UAE — Huisjurist">
-  <meta property="og:description" content="De complete UAE-kennis van huisjurist: visums, freezones, bankieren, wonen, geschillen en legalisatie.">
-  <meta property="og:url" content="https://www.huisjurist.nl/en-nu-een-bedrijf-starten/">
+  <meta property="og:title" content="ARCHIVE_PLACEHOLDER_OG_TITLE">
+  <meta property="og:description" content="ARCHIVE_PLACEHOLDER_OG_DESCRIPTION">
+  <meta property="og:url" content="https://ARCHIVE_PLACEHOLDER_CANONICAL_URL">
   <meta property="og:image" content="https://www.huisjurist.nl/assets/img/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Bedrijf starten in Dubai &amp; de UAE — Huisjurist">
@@ -117,11 +117,11 @@ const page = `<!doctype html>
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Bedrijf starten in Dubai / de UAE — Huisjurist",
-    "description": "Alles over bedrijf starten in de Verenigde Arabische Emiraten: visums, freezones, bankieren, wonen, geschillen en legalisatie — in het Huisjurist UAE-kennisarchief.",
-    "url": "https://www.huisjurist.nl/en-nu-een-bedrijf-starten/",
+    "name": "ARCHIVE_PLACEHOLDER_JSONLD_NAME",
+    "description": "ARCHIVE_PLACEHOLDER_JSONLD_DESCRIPTION",
+    "url": "https://ARCHIVE_PLACEHOLDER_CANONICAL_URL",
     "inLanguage": "nl-NL",
-    "isPartOf": { "@type": "WebSite", "name": "huisjurist", "url": "https://www.huisjurist.nl/" }
+    "isPartOf": { "@type": "WebSite", "name": "huisjurist", "url": "https://ARCHIVE_PLACEHOLDER_CANONICAL_URL" }
   }
   </script>
   <link rel="stylesheet" href="assets/css/main.css">
@@ -141,4 +141,4 @@ ${footer}
 `;
 
 fs.writeFileSync(path.join(ROOT, "bedrijf-starten-dubai-uae.html"), page);
-console.log("✓ bedrijf-starten-dubai-uae.html rebuilt as thin alias → en-nu-een-bedrijf-starten/");
+console.log("✓ bedrijf-starten-dubai-uae.html rebuilt as thin alias → ARCHIVE_PLACEHOLDER_UAE_SECTION_ID/");

@@ -9,10 +9,10 @@ import fs from "node:fs";
 import path from "node:path";
 
 const ROOT = path.dirname(path.dirname(new URL(import.meta.url).pathname));
-const SUB = "en-nu-een-bedrijf-starten";
-const BOOKING = "https://dutchlawyerindeuae.youcanbook.me/";
+const SUB = "ARCHIVE_PLACEHOLDER_UAE_SECTION_ID";
+const BOOKING = "https://ARCHIVE_PLACEHOLDER_BOOKING_URL/";
 const LINKEDIN = "https://www.linkedin.com/in/huisjurist/";
-const FACEBOOK = "https://www.facebook.com/dutchlawyerindeuae";
+const FACEBOOK = "https://ARCHIVE_PLACEHOLDER_FACEBOOK_URL/";
 
 const ROOT_FILES = [
   "index.html", "wie-ben-ik.html", "juridisch-advies.html", "kosten.html",
@@ -139,20 +139,20 @@ function migrate(file, rel, isCurrent) {
       `<h2 id="kanalen-title">Manieren om contact op te nemen</h2>`);
   }
 
-  // 13. wie-ben-ik.html: Hilda's profile photo in her panel
+  // 13. wie-ben-ik.html: placeholder profile photo (gereedschap: niet de geadopteerde portrait gebruikt)
   if (file === "wie-ben-ik.html") {
     repRe("profile-photo",
       `(<div class="question-panel reveal" data-tilt>\\s*)(<div class="panel-head">\\s*<span class="panel-icon" aria-hidden="true">👩‍⚖️</span>)`,
-      `$1<img class="profile-photo" src="assets/img/31175842_1699062696836407_7_med_hr.jpeg" alt="Foto van mr. Hilda van der Tuin, directeur van Huisjurist B.V." width="720" height="960" loading="lazy">\n                $2`);
+      `$1<img class="profile-photo" src="assets/img/ARCHIVE_PLACEHOLDER_PHOTO.jpeg" alt="Foto van mr. Hilda van der Tuin, directeur van Huisjurist B.V." width="720" height="960" loading="lazy">\n                $2`);
   }
 
-  // 14. index.html: Hilda photo in the "Wie ben ik?" section (above the trust grid)
+  // 14. index.html: placeholder profile photo card (gereedschap: niet de geadopteerde portrait gebruikt)
   if (file === "index.html") {
     rep("home-profile-photo",
       `          <div class="col-lg-6">
             <div class="row g-3 reveal-stagger">`,
       `          <div class="col-lg-6">
-            <img class="profile-photo profile-photo--card reveal" src="assets/img/31175842_1699062696836407_7_med_hr.jpeg" alt="Foto van mr. Hilda van der Tuin, directeur van Huisjurist B.V." width="720" height="960" loading="lazy">
+            <img class="profile-photo profile-photo--card reveal" src="assets/img/ARCHIVE_PLACEHOLDER_PHOTO.jpeg" alt="Foto van mr. Hilda van der Tuin, directeur van Huisjurist B.V." width="720" height="960" loading="lazy">
             <div class="row g-3 mt-4 reveal-stagger">`);
   }
 

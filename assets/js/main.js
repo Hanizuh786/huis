@@ -174,11 +174,11 @@
     { t: "Kernkwaliteiten & juridisch advies", u: "juridisch-advies.html", d: "Onroerend goed, testamenten, echtscheidingen en privacy/AVG.", k: "kernkwaliteiten advies gdpr grond testament mediation" },
     { t: "Wat kost het? — kosten", u: "kosten.html", d: "€ 250 per uur exclusief BTW (€ 302,50 inclusief 21% BTW), wekelijks onderbouwing en factuur.", k: "kosten prijs tarief euro budget factuur" },
     { t: "Zoeken in deze site", u: "zoeken.html", d: "Doorzoek alle pagina's van huisjurist.", k: "zoeken search site" },
-    { t: "Klachten?", u: "klachten.html", d: "Snelle klachtenprocedure: heel snel een persoonlijke reactie.", k: "klacht klachten procedure reactie" },
+    { t: "Klachten?", u: "klachten.html", d: "Snelle klachtenprocedure: meld uw klacht en krijgt u een persoonlijke reactie. Klachtenregeling 2026 en MfN-mediatiereglementen zijn op waar te nemen.", k: "klacht klachten procedure reactie klachtenregeling mfN" },
     { t: "Contact — hoe u mij bereikt", u: "contact.html", d: "E-mail, een geboekte afspraak, LinkedIn en het kantoor in Joure.", k: "contact email afspraak linkedin joure kantoor" },
     { t: "Betalen — bankgegevens", u: "betalen.html", d: "IBAN en BIC van de bankrekening van Huisjurist B.V.", k: "betalen iban knab factuur" },
     { t: "Privacy policy", u: "privacy.html", d: "Niets verzameld: geen cookies, geen trackers, geen verkoop van persoonsgegevens.", k: "privacy cookies trackers avg gdpr persoonsgegevens" },
-    { t: "Certificeringen en registraties", u: "certificeringen.html", d: "PRINCE2, associate member DIAC, gecertificeerd mediator en Raad van State.", k: "certificering registraties prince2 diac mediator" },
+    { t: "Certificeringen en registraties", u: "certificeringen.html", d: "PRINCE2, DIAC-associate member, gecertificeerd mediator, Raad van State, MfN-registermediator en NMv-lid.", k: "certificering registraties prince2 diac mediator nmv mfN" },
     { t: "Persoonlijke juridische vraag", u: "persoonlijke-juridische-vraag.html", d: "Mediator, testament, echtscheiding en persoonlijke vragen.", k: "persoonlijk scheiden testament mediator" },
     { t: "Zakelijke juridische vraag", u: "zakelijke-juridische-vraag.html", d: "GDPR, grond aankopen, gemeente en conflicten.", k: "zakelijk gdpr grond gemeente conflict" }
   ];
