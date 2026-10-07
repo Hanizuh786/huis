@@ -169,19 +169,52 @@
   const searchResults = doc.getElementById("searchResults");
   // SITE_INDEX holds root-relative URLs of every page on this site.
   const SITE_INDEX = [
-    { t: "Uw huisjurist voor uw zakelijke en persoonlijke vragen", u: "index.html", d: "Juridisch advies, mediation en interim-management.", k: "home start persoonlijk zakelijk" },
-    { t: "Wie ben ik? — mr. Hilda van der Tuin", u: "wie-ben-ik.html", d: "Hoe ik werk: responsief, transparant en in normaal Nederlands.", k: "hilda cv linkedin mediator directeur" },
-    { t: "Kernkwaliteiten & juridisch advies", u: "juridisch-advies.html", d: "Onroerend goed, testamenten, echtscheidingen en privacy/AVG.", k: "kernkwaliteiten advies gdpr grond testament mediation" },
-    { t: "Wat kost het? — kosten", u: "kosten.html", d: "€ 250 per uur exclusief BTW (€ 302,50 inclusief 21% BTW), wekelijks onderbouwing en factuur.", k: "kosten prijs tarief euro budget factuur" },
-    { t: "Zoeken in deze site", u: "zoeken.html", d: "Doorzoek alle pagina's van huisjurist.", k: "zoeken search site" },
-    { t: "Klachten?", u: "klachten.html", d: "Snelle klachtenprocedure: meld uw klacht en krijgt u een persoonlijke reactie. Klachtenregeling 2026 en MfN-mediatiereglementen zijn op waar te nemen.", k: "klacht klachten procedure reactie klachtenregeling mfN" },
-    { t: "Contact — hoe u mij bereikt", u: "contact.html", d: "E-mail, een geboekte afspraak, LinkedIn en het kantoor in Joure.", k: "contact email afspraak linkedin joure kantoor" },
-    { t: "Betalen — bankgegevens", u: "betalen.html", d: "IBAN en BIC van de bankrekening van Huisjurist B.V.", k: "betalen iban knab factuur" },
-    { t: "Privacy policy", u: "privacy.html", d: "Niets verzameld: geen cookies, geen trackers, geen verkoop van persoonsgegevens.", k: "privacy cookies trackers avg gdpr persoonsgegevens" },
-    { t: "Certificeringen en registraties", u: "certificeringen.html", d: "PRINCE2, DIAC-associate member, gecertificeerd mediator, Raad van State, MfN-registermediator en NMv-lid.", k: "certificering registraties prince2 diac mediator nmv mfN" },
-    { t: "Persoonlijke juridische vraag", u: "persoonlijke-juridische-vraag.html", d: "Mediator, testament, echtscheiding en persoonlijke vragen.", k: "persoonlijk scheiden testament mediator" },
-    { t: "Zakelijke juridische vraag", u: "zakelijke-juridische-vraag.html", d: "GDPR, grond aankopen, gemeente en conflicten.", k: "zakelijk gdpr grond gemeente conflict" }
+    { t: "Uw huisjurist voor uw zakelijke en persoonlijke vragen", u: "index.html", d: "Toegang tot het portal (optioneel) — juridisch advies, mediation en interim-management.", k: "home start persoonlijk zakelijk portal" },
+    { t: "Wie ben ik? — mr. Hilda van der Tuin", u: "wie-ben-ik.html", d: "", k: "" },
+    { t: "Kernkwaliteiten & juridisch advies", u: "juridisch-advies.html", d: "Onroerend goed, testamenten, echtscheidingen en privacy/AVG. Toegang tot het portal (desgewenst).", k: "kernkwaliteiten advies gdpr grond testament mediation portal" },
+    { t: "Wat kost het? — kosten", u: "kosten.html", d: "€ 250 per uur exclusief btw (€ 302,50 inclusief 21% btw), wekelijks onderbouwing en factuur.", k: "kosten prijs tarief euro budget factuur portal" },
+    { t: "Zoeken in deze site", u: "zoeken.html", d: "", k: "" },
+    { t: "Klachten?", u: "klachten.html", d: "Snelle klachtenprocedure: meld uw klacht en u krijgt een persoonlijke reactie. Op deze pagina vindt u de klachtenregeling van MfN en de toelichting.", k: "klacht klachten procedure reactie klachtenregeling mfN" },
+    { t: "Contact — hoe u mij bereikt", u: "contact.html", d: "", k: "" },
+    { t: "Betalen — bankgegevens", u: "betalen.html", d: "IBAN NL63KNAB 0257939938, BIC KNABNL2H, naam Huisjurist B.V. — betalen in euro’s.", k: "betalen iban bic bankrekening knab factuur" },
+    { t: "Privacy policy", u: "privacy.html", d: "", k: "" },
+    { t: "Certificeringen en registraties", u: "certificeringen.html", d: "PRINCE2, DIAC-associate member, gecertificeerd mediator, mediator bij de Raad van State, MfN-registermediator en NMv-lid.", k: "certificering registraties prince2 diac mediator nmv mfN Raad van State" },
+    { t: "Persoonlijke juridische vraag", u: "persoonlijke-juridische-vraag.html", d: "", k: "" },
+    { t: "Zakelijke juridische vraag", u: "zakelijke-juridische-vraag.html", d: "", k: "" }
   ];
+
+  // PAGE_TEXT loaded from search-index.json (full page text for each URL)
+  var PAGE_TEXT = {};
+  function loadPageText() {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', 'assets/js/search-index.json', false);
+    xhr.send();
+    if (xhr.status === 200) {
+      var data = JSON.parse(xhr.responseText);
+      data.forEach(function(entry) {
+        PAGE_TEXT[entry.file] = entry.text;
+      });
+    }
+  }
+  loadPageText();
+
+  function getPageText(url) {
+    var item = null;
+    for (var i = 0; i < SITE_INDEX.length; i++) {
+      if (SITE_INDEX[i].u === url) { item = SITE_INDEX[i]; break; }
+    }
+    if (!item) return '';
+    var hay = '';
+    if (PAGE_TEXT[url]) hay += PAGE_TEXT[url].toLowerCase() + ' ';
+    hay += (item.t + ' ' + item.d + ' ' + item.k).toLowerCase();
+    return hay;
+  }
+
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"']/g, function (ch) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch];
+    });
+  }
 
   function renderResults(query) {
     if (!searchResults) return;
@@ -190,7 +223,7 @@
     if (!q) return;
 
     const hits = SITE_INDEX.filter(function (item) {
-      const hay = (item.t + " " + item.d + " " + item.k).toLowerCase();
+      const hay = getPageText(item.u).toLowerCase();
       return q.split(/\s+/).every(function (word) {
         return hay.indexOf(word) !== -1;
       });
@@ -216,12 +249,6 @@
         escapeHtml(item.d) +
         "</span></span></a>";
       searchResults.appendChild(li);
-    });
-  }
-
-  function escapeHtml(str) {
-    return String(str).replace(/[&<>"']/g, function (ch) {
-      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch];
     });
   }
 
@@ -256,14 +283,34 @@
       const topic = contactForm.elements["topic"].value;
       const message = (contactForm.elements["message"].value || "").trim();
 
-      if (!name || !email || !message) {
+      // validate required fields (including whitespace-only)
+      function isBlank(v) { return !v || v.trim() === ''; }
+      function isValidEmail(v) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+      }
+      var errorEl = document.getElementById('formError');
+      function showError(msg) {
+        if (errorEl) {
+          errorEl.textContent = msg;
+          errorEl.style.display = 'block';
+        }
         contactForm.reportValidity();
+      }
+      if (isBlank(name) || isBlank(email) || isBlank(message) || !isValidEmail(email)) {
+        var errors = [];
+        if (isBlank(name)) errors.push('Uw naam is verplicht.');
+        if (isBlank(email)) errors.push('Uw e-mailadres is verplicht.');
+        else if (!isValidEmail(email)) errors.push('Voer een geldig e-mailadres in.');
+        if (isBlank(message)) errors.push('Uw bericht is verplicht.');
+        showError(errors.join(' '));
         return;
+      } else if (errorEl) {
+        errorEl.style.display = 'none';
       }
 
       const subject = encodeURIComponent("[website] " + topic + " — " + name);
       const body = encodeURIComponent(
-        message + "\n\n— " + name + " (" + email + ")"
+        message + "\n\n— " + name + " <" + email + ">"
       );
       window.location.href = "mailto:info@huisjurist.nl?subject=" + subject + "&body=" + body;
     });
