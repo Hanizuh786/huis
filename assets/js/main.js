@@ -178,6 +178,7 @@
     { t: "Contact — hoe u mij bereikt", u: "contact.html", d: "", k: "" },
     { t: "Betalen — bankgegevens", u: "betalen.html", d: "IBAN NL63KNAB 0257939938, BIC KNABNL2H, naam Huisjurist B.V. — betalen in euro’s.", k: "betalen iban bic bankrekening knab factuur" },
     { t: "Privacy policy", u: "privacy.html", d: "", k: "" },
+    { t: "Oude berichten — disclaimer oude informatie", u: "oude-informatie.html", d: "Berichten op huisjurist.nl kunnen meerdere jaren oud zijn; wetten en uitspraken veranderen. Lees waarom we oudere berichten laten staan.", k: "oud oude berichten disclaimer actualiteit publicatiedatum achterhaald wetten regels uitspraken" },
     { t: "Certificeringen en registraties", u: "certificeringen.html", d: "PRINCE2, DIAC-associate member, gecertificeerd mediator, mediator bij de Raad van State, MfN-registermediator en NMv-lid.", k: "certificering registraties prince2 diac mediator nmv mfN Raad van State" },
     { t: "Persoonlijke juridische vraag", u: "persoonlijke-juridische-vraag.html", d: "", k: "" },
     { t: "Zakelijke juridische vraag", u: "zakelijke-juridische-vraag.html", d: "", k: "" }

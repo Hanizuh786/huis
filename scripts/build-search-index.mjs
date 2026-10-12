@@ -14,6 +14,7 @@ const pages = [
   'contact.html',
   'betalen.html',
   'privacy.html',
+  'oude-informatie.html',
   'certificeringen.html',
   'persoonlijke-juridische-vraag.html',
   'zakelijke-juridische-vraag.html'
